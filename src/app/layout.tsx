@@ -5,6 +5,17 @@ import "@/css/satoshi.css";
 import "@/css/style.css";
 import React, { useEffect, useState } from "react";
 import Loader from "@/components/common/Loader";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+
+import { RecoilRoot } from "recoil";
+
+import "react-datepicker/dist/react-datepicker.css";
+
+import { Provider } from "react-redux";
+import { store } from "@/data/store";
+
 
 export default function RootLayout({
   children,
@@ -23,9 +34,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
-        <div className="dark:bg-boxdark-2 dark:text-bodydark">
-          {loading ? <Loader /> : children}
-        </div>
+        <ToastContainer />
+        <Provider store={store}>
+
+        <RecoilRoot>
+          <div className="dark:bg-boxdark-2 dark:text-bodydark">
+            {loading ? <Loader /> : children}
+          </div>
+        </RecoilRoot>
+        </Provider>
       </body>
     </html>
   );
