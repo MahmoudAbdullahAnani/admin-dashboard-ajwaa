@@ -1,6 +1,6 @@
+import { SchemaUser } from "@/types/auth";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { SchemaUser } from "../../pages/Auth/Login";
 
 // export interface CounterState {
 //   value: number;
@@ -31,7 +31,6 @@ export const isLoggedUser = createSlice({
   initialState,
   reducers: {
     addUserLogged: (state, action: PayloadAction<SchemaUser>) => {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       state = action.payload;
       return state;
