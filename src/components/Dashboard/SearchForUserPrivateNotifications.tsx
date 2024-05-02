@@ -31,7 +31,12 @@ function SearchForUserPrivateNotifications() {
         if (!["admin", "manger"].includes(data.role)) {
           return router.replace("https://ittrip.vercel.app");
         }
-
+        localStorage.setItem("avatar", data.avatar);
+        localStorage.setItem("firstName", data.firstName);
+        localStorage.setItem("lastName", data.lastName);
+        localStorage.setItem("email", data.email);
+        localStorage.setItem("age", data.age);
+        
         dispatch(addUserLogged(data));
         // await getPublicNotifications();
         // await getPrivateNotifications();

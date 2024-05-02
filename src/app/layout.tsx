@@ -16,7 +16,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Provider } from "react-redux";
 import { store } from "@/data/store";
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -36,12 +35,11 @@ export default function RootLayout({
       <body suppressHydrationWarning={true}>
         <ToastContainer />
         <Provider store={store}>
-
-        <RecoilRoot>
-          <div className="dark:bg-boxdark-2 dark:text-bodydark">
-            {loading ? <Loader /> : children}
-          </div>
-        </RecoilRoot>
+          <RecoilRoot>
+            <div className="dark:bg-boxdark-2 dark:text-bodydark">
+              {loading ? <Loader /> : children}
+            </div>
+          </RecoilRoot>
         </Provider>
       </body>
     </html>

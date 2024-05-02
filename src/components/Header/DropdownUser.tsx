@@ -1,8 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useSelector } from "react-redux";
+import { RootState } from "@/data/store";
 
 const DropdownUser = () => {
+  const stateUserData = useSelector((state: RootState) => state.loggedUser);
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const trigger = useRef<any>(null);
@@ -44,16 +48,17 @@ const DropdownUser = () => {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            Thomas Anree
+            {stateUserData.firstName} {stateUserData.lastName}
           </span>
-          <span className="block text-xs">UX Designer</span>
+          <span className="block text-xs">{stateUserData.role || "Admin"}</span>
         </span>
 
         <span className="h-12 w-12 rounded-full">
           <Image
             width={112}
             height={112}
-            src={"/images/user/user-01.png"}
+            className="h-[50px] w-[50px] rounded-full"
+            src={stateUserData.avatar || "/images/user/user-01.png"}
             style={{
               width: "auto",
               height: "auto",
@@ -91,7 +96,7 @@ const DropdownUser = () => {
         <ul className="flex flex-col gap-5 border-b border-stroke px-6 py-7.5 dark:border-strokedark">
           <li>
             <Link
-              href="/profile"
+              href={`/profile?token=${localStorage.getItem("token")}`}
               className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
             >
               <svg
@@ -116,7 +121,7 @@ const DropdownUser = () => {
           </li>
           <li>
             <Link
-              href="#"
+              href={`/Notifications?token=${localStorage.getItem("token")}`}
               className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
             >
               <svg
@@ -132,12 +137,12 @@ const DropdownUser = () => {
                   fill=""
                 />
               </svg>
-              My Contacts
+              Notifications
             </Link>
           </li>
           <li>
             <Link
-              href="/settings"
+              href={`/settings?token=${localStorage.getItem("token")}`}
               className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
             >
               <svg
@@ -161,7 +166,10 @@ const DropdownUser = () => {
             </Link>
           </li>
         </ul>
-        <button className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
+        <Link
+          href={`https://itteip.vercel.app`}
+          className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
+        >
           <svg
             className="fill-current"
             width="22"
@@ -180,7 +188,7 @@ const DropdownUser = () => {
             />
           </svg>
           Log Out
-        </button>
+        </Link>
       </div>
       {/* <!-- Dropdown End --> */}
     </div>
