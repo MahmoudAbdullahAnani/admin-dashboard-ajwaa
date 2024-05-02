@@ -12,7 +12,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { RecoilRoot } from "recoil";
 
 import "react-datepicker/dist/react-datepicker.css";
-
 import { Provider } from "react-redux";
 import { store } from "@/data/store";
 
