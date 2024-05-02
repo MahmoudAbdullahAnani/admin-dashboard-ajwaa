@@ -31,16 +31,16 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body suppressHydrationWarning={true}>
-        <ToastContainer />
-        <Provider store={store}>
+      <Provider store={store}>
+        <body suppressHydrationWarning={true}>
+          <ToastContainer />
           <RecoilRoot>
             <div className="dark:bg-boxdark-2 dark:text-bodydark">
               {loading ? <Loader /> : children}
             </div>
           </RecoilRoot>
-        </Provider>
-      </body>
+        </body>
+      </Provider>
     </html>
   );
 }
