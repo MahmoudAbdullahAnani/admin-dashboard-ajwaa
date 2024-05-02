@@ -30,6 +30,7 @@
     "react-chartjs-2": "^5.2.0",
     "react-datepicker": "^6.9.0",
     "react-dom": "^18",
+    "react-redux": "^9.1.2",
     "react-toastify": "^10.0.5",
     "recoil": "^0.7.7",
     "styled-components": "^6.1.9"
