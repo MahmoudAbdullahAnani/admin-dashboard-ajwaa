@@ -13,8 +13,7 @@ export default function Home() {
     <>
       <CheckIsAdmin />
       <DefaultLayout>
-        <></>
-        {/* <ControlPanel /> */}
+        <ControlPanel />
       </DefaultLayout>
     </>
   );
