@@ -9,6 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  console.log("====================================");
+  console.log(process.env.NEXT_PUBLIC_API_PRODUCTION);
+  console.log("====================================");
   return (
     <>
       <CheckIsAdmin />
