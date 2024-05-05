@@ -101,7 +101,7 @@ const ControlPanel: React.FC = () => {
   }
   return (
     <>
-      {/* <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
         {cashData && (
           <CardDataStats
             title="Total views"
@@ -218,17 +218,17 @@ const ControlPanel: React.FC = () => {
             </svg>
           </CardDataStats>
         )}
-      </div> */}
+      </div>
 
       <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
-        <CharTrip cashData={cashData} />
-        <MainChartsTop
+        {/* <CharTrip cashData={cashData} /> */}
+        {/* <MainChartsTop
           allUsers={allUsers}
           allUsersActive={allUsersActive}
           allUsersUnActive={allUsersUnActive}
           // @ts-ignore
           cashData={cashData}
-        ></MainChartsTop>
+        ></MainChartsTop> */}
         <ChartOne />
         <ChartTwo />
         <ChartThree />
