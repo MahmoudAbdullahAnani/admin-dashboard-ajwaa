@@ -6,6 +6,7 @@ export default function CheckIsAdmin() {
     const href = window.location.href;
     const token = href.split("token=")[1];
     if (token === undefined) {
+      localStorage.removeItem("token");
       return (window.location.href = "https://ittrip.vercel.app");
     }
     localStorage.setItem("token", token);

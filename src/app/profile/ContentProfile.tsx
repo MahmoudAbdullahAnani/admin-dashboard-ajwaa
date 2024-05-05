@@ -4,10 +4,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import { RootState } from "@/data/store";
-
+import { useEffect } from "react";
+import { redirect } from "next/navigation"
 export function ContentProfile() {
   const stateUserData = useSelector((state: RootState) => state.loggedUser);
-
+  useEffect(() => {
+    if (
+      !["admin", "manger"].includes(stateUserData?.role) ||
+      stateUserData._id === ""
+    ) {
+      return redirect(`/?token=${localStorage.getItem("token")}`);
+    }
+  }, [stateUserData]);
   return (
     <>
       <div className="mx-auto max-w-242.5">

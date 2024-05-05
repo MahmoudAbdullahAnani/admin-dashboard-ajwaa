@@ -91,9 +91,10 @@ export default function ContentNotifications() {
       })
       .catch((error) => {
         console.log(error);
-        // if (error.response?.data.statusCode === 401) {
-        //   localStorage.removeItem("token");
-        // }
+        if (error.response?.data.statusCode === 401) {
+          localStorage.removeItem("token");
+          return (window.location.href = "https://ittrip.vercel.app");
+        }
       });
     // setLoading(false);
     return true;

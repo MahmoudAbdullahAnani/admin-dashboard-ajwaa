@@ -14,13 +14,13 @@ import Loader from "../common/Loader";
 
 function formatNumber(number: number) {
   if (number >= 1e9) {
-    return (number / 1e9).toFixed(1) + "b"; // المليار
+    return (number / 1e9).toFixed(1) + "b";
   } else if (number >= 1e6) {
-    return (number / 1e6).toFixed(1) + "m"; // المليون
+    return (number / 1e6).toFixed(1) + "m";
   } else if (number >= 1e3) {
-    return (number / 1e3).toFixed(1) + "k"; // الألف
+    return (number / 1e3).toFixed(1) + "k";
   } else {
-    return number.toString(); // الأرقام الصغيرة
+    return number.toString();
   }
 }
 const ControlPanel: React.FC = () => {
@@ -80,9 +80,10 @@ const ControlPanel: React.FC = () => {
       .catch((error) => {
         console.log(error);
 
-        // if (error.response?.data.statusCode === 401) {
-        //   localStorage.removeItem("token");
-        // }
+        if (error.response?.data.statusCode === 401) {
+          localStorage.removeItem("token");
+          return (window.location.href = "https://ittrip.vercel.app");
+        }
       });
   };
 
