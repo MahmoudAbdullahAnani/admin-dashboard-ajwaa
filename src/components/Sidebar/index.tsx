@@ -50,7 +50,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   });
 
   useEffect(() => {
-    localStorage.setItem("sidebar-expanded", sidebarExpanded.toString());
+    localStorage.setItem("sidebar-expanded", `${sidebarExpanded}`);
     if (sidebarExpanded) {
       document.querySelector("body")?.classList.add("sidebar-expanded");
     } else {

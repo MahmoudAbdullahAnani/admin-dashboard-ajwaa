@@ -20,7 +20,7 @@ function formatNumber(number: number) {
   } else if (number >= 1e3) {
     return (number / 1e3).toFixed(1) + "k";
   } else {
-    return number.toString();
+    return `${number}`
   }
 }
 const ControlPanel: React.FC = () => {
@@ -131,8 +131,8 @@ const ControlPanel: React.FC = () => {
         {allUsers && allUsersUnActive && (
           <CardDataStats
             title="Total Users UnActive"
-            total={allUsersUnActive.length.toString()}
-            rate={(allUsersUnActive.length / allUsers.length).toString()}
+            total={`${allUsersUnActive.length}`}
+            rate={`${allUsersUnActive.length / allUsers.length}`}
             levelDown
           >
             <svg
@@ -161,8 +161,8 @@ const ControlPanel: React.FC = () => {
         {allUsers && allUsersActive && (
           <CardDataStats
             title="Total Users"
-            total={allUsers.length.toString()}
-            rate={(allUsersActive.length / allUsers.length).toString()}
+            total={`${allUsers.length}`}
+            rate={`${allUsersActive.length / allUsers.length}`}
             levelUp
           >
             <svg
@@ -191,8 +191,8 @@ const ControlPanel: React.FC = () => {
         {allUsers && allUsersActive && (
           <CardDataStats
             title="Total Users Active"
-            total={allUsersActive.length.toString()}
-            rate={(allUsersActive.length / allUsers.length).toString()}
+            total={`${allUsersActive.length}`}
+            rate={`${allUsersActive.length / allUsers.length}`}
             levelUp
           >
             <svg
